@@ -4,19 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Cursor Control (YOLOv8)</title>
-    <!-- COI Service Worker for SharedArrayBuffer support on GitHub Pages -->
+    <title>Dog Cursor Control (High Speed - COCO-SSD)</title>
+    <!-- COI for consistency, though less critical for bare TFJS WebGL -->
     <script src="coi-serviceworker.js"></script>
 
     <link rel="stylesheet" href="style.css">
-    <!-- Load ONNX Runtime Web -->
-    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <!-- Load COCO-SSD model -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
 </head>
 
 <body>
     <div class="container">
-        <h1>Dog Cursor Control</h1>
-        <div id="status">Loading Model...</div>
+        <h1>Dog Cursor Control <span style="color: #00ff00; font-size: 0.8em;">(High Speed)</span></h1>
+        <div id="status">Loading COCO-SSD Model...</div>
 
         <div class="view-container">
             <video id="webcam" autoplay playsinline muted></video>
@@ -25,9 +28,9 @@
         </div>
 
         <div class="controls">
-            <p>Inference: <span id="inference-time">0</span> ms | FPS: <span id="fps">0</span></p>
+            <p>Engine: TensorFlow.js (COCO-SSD) | FPS: <span id="fps">0</span></p>
             <div style="margin-top: 15px;">
-                <a href="index_ssd.html" class="btn">Switch to High Speed Mode (COCO-SSD)</a>
+                <a href="index.html" class="btn">Switch to Precision Mode (YOLOv8)</a>
             </div>
         </div>
 
@@ -66,7 +69,7 @@
         };
     </script>
 
-    <script src="script.js"></script>
+    <script src="script_ssd.js"></script>
 </body>
 
 </html>
